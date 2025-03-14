@@ -23,7 +23,7 @@ console.log(y);
 let y = 10;
 ```
 a) A saída será undefined seguido de erro 
-
+O valor de x será exibido como undefined, pois foi declarado com var. Isso acontece porque variáveis declaradas com var são içadas para o topo do escopo, permitindo que sejam acessadas antes da atribuição, mas com um valor indefinido. Já y, que foi declarado com let, provoca um erro ao ser acessado antes da sua definição, pois variáveis declaradas com let não permitem acesso antes da inicialização.
 
 **2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.**
 
