@@ -37,14 +37,9 @@ function soma(a, b) {
 console.log(soma(2, 0));
 ```
 
-a) Substituir if (a || b === 0) por if (a === 0 || b === 0)
-
 b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
 
-c) Substituir if (a || b === 0) por if (a && b === 0)
-
-d) Remover completamente a verificação if (a || b === 0)
-
+Se o operador lógico || for utilizado, a mensagem "Erro: número inválido" será exibida sempre que pelo menos um dos valores for igual a zero, independentemente do outro. Por outro lado, com o operador &&, essa mensagem só será mostrada caso ambos os números sejam 0.
 ______
 **3) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
 ```javascript
@@ -69,14 +64,9 @@ function calcularPreco(tipo) {
 
 console.log(calcularPreco("eletrônico"));
 ```
-
-a) O código imprime 1000.
-
 b) O código imprime 200.
 
-c) O código imprime 50.
-
-d) O código gera um erro.
+Quando o código encontra "eletrônico", ele começa atribuindo 1000. Mas como não tem um break, ele segue para o próximo caso, que muda o valor para 200. Só depois disso o break aparece e interrompe tudo, fazendo com que 200 seja impresso.
 
 ______
 **4) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
@@ -87,13 +77,9 @@ let resultado = numeros.map(x => x * 2).filter(x => x > 5).reduce((a, b) => a + 
 
 console.log(resultado);
 ```
-a) 0
-
-b) 6
-
-c) 18
-
 d) 24
+
+O código primeiro dobra cada número da lista. Depois, remove os que são maiores que 5. No final, soma os que restaram e chega em 24.
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -103,27 +89,18 @@ lista.splice(1, 2, "abacaxi", "manga");
 console.log(lista);
 ```
 
-a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
-
-b) ["banana", "abacaxi", "manga"]
-
 c) ["banana", "abacaxi", "manga", "laranja"]
 
-d) ["banana", "maçã", "uva", "abacaxi", "manga"]
+A lista original tem "maçã" e "uva" nas posições 1 e 2, que são removidas e substituídas por "abacaxi" e "manga". No final, a lista fica como ["banana", "abacaxi", "manga", "laranja"].
 ______
 **6) Abaixo há duas afirmações sobre herança em JavaScript. Indique a alternativa correta e justifique sua resposta**
 
 I. A herança é utilizada para compartilhar métodos e propriedades entre classes em JavaScript, permitindo que uma classe herde os métodos de outra sem a necessidade de repetir código.  
 II. Em JavaScript, a herança é implementada através da palavra-chave `extends`.
 
-
-a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.
-
 b) As duas afirmações são verdadeiras, mas a segunda não justifica a primeira.
 
-c) A primeira afirmação é verdadeira, e a segunda é falsa.
-
-d) A primeira afirmação é falsa, e a segunda é verdadeira.
+A primeira afirmação está certa, porque a herança evita a repetição de código ao compartilhar métodos e propriedades entre classes. A segunda também é verdadeira, já que extends é uma forma de herança em JavaScript, mas não é a única. Também é possível usar protótipos (Object.create(), por exemplo). Por isso, a segunda afirmação não justifica a primeira.
 ______
 **7) Dado o seguinte código. Indique a alternativa correta e justifique sua resposta.**
 
@@ -161,11 +138,7 @@ Quais das seguintes afirmações são verdadeiras sobre o código acima?
 
 a) I e II são verdadeiras.
 
-b) I, II e III são verdadeiras.
-
-c) Apenas II é verdadeira.
-
-d) Apenas I é verdadeira.
+A classe Funcionario estende Pessoa, e o super(nome, idade) chama o construtor da classe pai para inicializar os atributos. O método apresentar() de Funcionario sobrescreve o da classe Pessoa, mas super.apresentar() permite acessar a versão original. O JavaScript moderno dá suporte a classes e herança usando class e extends.
 
 ______
 
@@ -174,15 +147,12 @@ ______
 **Asserção:** O conceito de polimorfismo em Programação Orientada a Objetos permite que objetos de diferentes tipos respondam à mesma mensagem de maneiras diferentes.  
 **Razão:** Em JavaScript, o polimorfismo pode ser implementado utilizando o método de sobrecarga de métodos em uma classe.
 
-a) A asserção é falsa e a razão é verdadeira.
-
 b) A asserção é verdadeira e a razão é falsa.
 
-c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
-
-d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a asserção.
-
+O polimorfismo na POO possibilita que instâncias de diversas classes reajam de maneira distinta a uma mesma chamada, levando em conta suas características individuais. No entanto, ele não pode ser obtido por meio da sobrecarga de métodos, pois esse mecanismo apenas reconhece a versão mais recente associada ao identificador do método.
 ______
+
+
 
 # Questões dissertativas
 9) O seguinte código deve retornar a soma do dobro dos números de um array, mas contém erros. Identifique os problema e corrija o código para que funcione corretamente. Adicione comentários ao código explicado sua solução para cada problema.
@@ -197,6 +167,27 @@ function somaArray(numeros) {
 }
 console.log(somaArray([1, 2, 3, 4]));
 ```
+Código funcionando:
+
+// Declara a função que calcula a soma dos elementos de um array multiplicados por 2
+function somaArray(numeros) {
+
+    // Inicializa a variável que armazenará o resultado da soma
+    let soma = 0;
+
+    // Percorre todos os elementos do array
+    for (let i = 0; i < numeros.length; i++) {
+        // Multiplica cada elemento por 2 e adiciona ao total
+        soma += 2 * numeros[i];
+    }
+    
+    // Retorna o resultado final da soma
+    return soma;
+}
+
+// Chama a função com um array de números e exibe o resultado no console
+console.log(somaArray([1, 2, 3, 4]));
+
 ______
 10) Crie um exemplo prático no qual você tenha duas classes:
 
@@ -204,3 +195,50 @@ ______
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+class Produto {
+    // Define os atributos básicos de um produto
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+  
+    calcularDesconto() {
+        // Aplica um desconto padrão de 10% sobre o preço original
+        const desconto = this.preco * 0.10;
+        return this.preco - desconto;
+    }
+
+    precificar() {
+        // Exibe o nome do produto e seu preço no console
+        console.log(`Produto: ${this.nome}, Preço: ${this.preco}.`);
+    }
+}
+
+class Livro extends Produto {
+    // Inicializa um objeto da classe Livro com os mesmos atributos da classe pai
+    constructor(nome, preco, autor) {
+        super(nome, preco); // Chama o construtor da classe Produto
+        this.autor = autor; // Adiciona um atributo específico para livros
+    }
+  
+    calcularDesconto() {
+        // Redefine a regra de desconto para livros, aplicando 20% de desconto
+        const desconto = this.preco * 0.20;
+        return this.preco - desconto;
+    }
+
+    precificar() {
+        // Exibe as informações específicas do livro
+        console.log(`Livro: ${this.nome}, Preço: ${this.preco}, Autor: ${this.autor}.`);
+    }
+}
+A herança permite que a classe Livro utilize as propriedades e métodos da classe Produto por meio da palavra-chave extends. No entanto, é possível sobrescrever métodos herdados para adaptar comportamentos específicos. Por exemplo, calcularDesconto() é redefinido na classe Livro para oferecer um desconto maior. Para que essa personalização funcione corretamente, as instâncias da classe devem ser criadas e configuradas com os valores desejados.
+
+
+
+
+
+
+
+
